@@ -8,7 +8,8 @@ public static void main(String[] args){
 //	System.out.println("hi, my name is" +names[0]+".");
 	
 		for(int i=1;i<=3;i++){
-			System.out.println("hi, my name is" +names[i-1]+".");
+			System.out.println("hi, my name is" +names[i-1]+". I am a" + years[i-1] + "."
+		);
 		}
 			
 			
