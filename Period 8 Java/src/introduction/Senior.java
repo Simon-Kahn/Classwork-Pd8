@@ -7,7 +7,8 @@ public class Senior extends Student {
 		// TODO Auto-generated constructor stub
 	}
 	public void talk(){
-	System.out.println("I am a Senior");
+	super.talk();
+	System.out.println("... and I am a Senior!");
 	}
 
 }
