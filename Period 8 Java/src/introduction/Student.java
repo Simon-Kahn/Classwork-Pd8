@@ -10,4 +10,8 @@ public class Student {
 		this.name = name;
 
 	}
+	public void talk(){
+		System.out.println("Hello, my name is " +name);
+		
+	}
 }
