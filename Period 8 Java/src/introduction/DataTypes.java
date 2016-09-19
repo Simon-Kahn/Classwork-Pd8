@@ -21,34 +21,34 @@ public class DataTypes {
 		System.out.println("d1 - d2 : " + (d1 - d2));
 	
 
-		String s = 1;
-		System.out.println(s);
-	
-		String s = (String)1;
-		System.out.println(s);
-	
-		String s = "1";
-		System.out.println(s);
-
-		String s = ""+1;
-		System.out.println(s);
-
-		String s = "Happy "+18+"th birthday!";
-		System.out.println(s);
-
-		String s = "Happy 18th birthday!";
-		System.out.println(s);
-	 
-		String s = "Happy "+54/3+"th birthday!";
-		System.out.println(s);
+//		String s = 1;
+//		System.out.println(s);
+//	
+//		String s = (String)1;
+//		System.out.println(s);
+//	
+//		String s = "1";
+//		System.out.println(s);
+//
+//		String s = ""+1;
+//		System.out.println(s);
+//
+//		String s = "Happy "+18+"th birthday!";
+//		System.out.println(s);
+//
+//		String s = "Happy 18th birthday!";
+//		System.out.println(s);
+//	 
+//		String s = "Happy "+54/3+"th birthday!";
+//		System.out.println(s);
 	
 		String s = "Happy "+(54/3)+"th birthday!";
 		System.out.println(s);
-	
-		int m = 22;
-		int n = 7;
-		System.out.println("m/n is "+(m/n));
-	
+		
+//		int m = 22;
+//		int n = 7;
+//		System.out.println("m/n is "+(m/n));
+//	
 		int m = 22;
 		int n = 7;
 		System.out.println("m/n is "+((double)m/n));
