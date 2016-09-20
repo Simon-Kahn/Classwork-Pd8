@@ -52,9 +52,9 @@ public class DataTypes {
 		int m = 22;
 		int n = 7;
 		System.out.println("m/n is "+((double)m/n));
-	
-	
-	
+	String ten = "10";
+	String two = "2";
+
 	
 	
 	
