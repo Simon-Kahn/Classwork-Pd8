@@ -6,22 +6,20 @@ public class StringPractice {
 
 	static Scanner input;
 	static String users;
-	static int lineCount;
 	
 	public static void main(String[] args) {
 		
 		createFields();
-		//lineCount = 0;
-		demostrateStringMethods();
+	//	demostrateStringMethods();
 		promptName();
-		//promptInput();
+	//promptInput();
 		talkForever();
 	}
 
 	private static void promptName() {
 		print("Hello!\n What is your name?");
 		users = input.nextLine();
-		print("Awesome! I will call you "+users+" until you terminate me.");
+		print("Awesome! I will call you "+users+" until you terminate me. hoooooooooooooooooooooooray yay");
 	}
 
 	public static void talkForever(){
@@ -30,17 +28,50 @@ public class StringPractice {
 		}
 	}
 	public static void promptInput() {
-		print(users+", try inputting a string!");
+		print(users+", try typing something!");
 		String userInput = input.nextLine();
 		print("You typed "+userInput);
 		
 	}
 	
 	public static void print(String s){
-		lineCount++;
-		System.out.println("Line #"+lineCount+":"+s);
+		String printString = s;
+int cutoff = 45;
+if(printString.length() > cutoff){
+
+	//shorten the cut to end on a space
+	for(int i=0; i*cutoff <s.length(); i++){
+	printString += getCut(s, cutoff, i+1) +"\n";
+}
+}
+System.out.println(printString);
 	}
 
+	private static String getCut(String s, int cutoff, int cut){
+		//int cut = 1;
+		
+		int cutIndex = cut * cutoff;
+		if(cutIndex > s.length())cutIndex = s.length();
+		String currentCut = s.substring(0,cutIndex);
+		
+		int indexOfLastSpace=currentCut.length()-1;
+		
+		for(int i = currentCut.length()-1;i>=0;i--){
+		String letter =currentCut.substring(i, i++);
+		if(letter.equals(" ")){
+			indexOfLastSpace = i;
+			break;
+			}
+		}
+		currentCut = currentCut.substring(0, indexOfLastSpace);
+		return currentCut;
+		
+	}
+	
+	
+	
+	
+	
 	public static void createFields() {
 		input = new Scanner(System.in);
 		
