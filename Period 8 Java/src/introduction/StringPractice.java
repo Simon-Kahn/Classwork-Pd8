@@ -1,25 +1,69 @@
 package introduction;
 
+import java.util.Scanner;
+
 public class StringPractice {
 
-	public static void main(String[] args) {
-		String text1 = new String("Hello World");
-		String text2="Hello World";//same as above
-		
-		if (text1.equals (text2)){ //.equals es muy importante
-			System.out.println("these strings are equal:");
-		}
-		prl(text1);
-		prl(text2);
+	static Scanner input;
+	static String users;
+	static int lineCount;
 	
+	public static void main(String[] args) {
+		
+		createFields();
+		//lineCount = 0;
+		demostrateStringMethods();
+		promptName();
+		//promptInput();
+		talkForever();
+	}
+
+	private static void promptName() {
+		print("Hello!\n What is your name?");
+		users = input.nextLine();
+		print("Awesome! I will call you "+users+" until you terminate me.");
+	}
+
+	public static void talkForever(){
+		while(true){
+			promptInput();
+		}
+	}
+	public static void promptInput() {
+		print(users+", try inputting a string!");
+		String userInput = input.nextLine();
+		print("You typed "+userInput);
+		
+	}
+	
+	public static void print(String s){
+		lineCount++;
+		System.out.println("Line #"+lineCount+":"+s);
+	}
+
+	public static void createFields() {
+		input = new Scanner(System.in);
+		
+	}
+	
+	public static void demostrateStringMethods(){
+		
+//		String text = new String("Hello World");
+		String text1 = "Hello World";//same as the one above this code (line 6)
+		String text2 = "Hello ";
+		String text3 = "World";
+		
+		if(text1.equals(text2 + text3)){
+			System.out.println("These strings are equal.");
+		}
+		System.out.println(text1);
+		System.out.println(text2 + text3);
+
 		String word1 = "Aardvark";
 		String word2 = "Zyzzyva";
-	
-		if(word1.compareTo(word2) <0){
-			prl("word1 comes before word2");
-		}
+		if(word1.compareTo(word2) < 0)
+			System.out.println("Word1 is before word2," + " lexicongraphically.");
+		
 	}
-	public static void prl(String s){
-		System.out.println(s);
-	}
+
 }
