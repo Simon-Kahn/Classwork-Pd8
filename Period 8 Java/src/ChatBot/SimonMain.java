@@ -30,7 +30,7 @@ public class SimonMain {
 		while(inMainLoop){
 			print("hi, " + user+ ". How are you?");
 			response = promptInput();
-			if(response.indexOf("good")>=0){
+			if(findKeyword(response, "good", 0) >=0){
 				print("That's wonderful. "+ "So glad you feel good.");
 			
 			}
@@ -47,6 +47,42 @@ public class SimonMain {
 			}
 		}
 	}
+	
+	public static int findKeyword(String searchString, String keyword, int startPsn) {
+	//delete white space
+		searchString = searchString.trim();
+		
+	//make lowercase
+		searchString = searchString.toLowerCase();
+		keyword = keyword.toLowerCase();
+		int psn = searchString.indexOf(0);
+		while(psn >= 0){
+			String before = " ";
+			String after = " ";
+			if(psn > 0){
+				before = searchString.substring(psn-1, psn);
+			}
+			if(psn+ keyword.length() > searchString.length()){
+				after = searchString.substring(psn+ keyword.length(), psn+ keyword.length()+1);
+			
+			}
+			if(before.compareTo("a") < 0 && after.compareTo("a") < 0){
+				return psn;
+			}
+			else{
+				psn = searchString.indexOf(keyword, psn+1);
+			}
+		}
+		
+		return -1;
+	}
+
+	
+	
+	
+	
+	
+	
 	
 	public static String promptInput() {
 		String userInput = input.nextLine();
