@@ -55,22 +55,28 @@ public class SimonMain {
 	//make lowercase
 		searchString = searchString.toLowerCase();
 		keyword = keyword.toLowerCase();
-		int psn = searchString.indexOf(0);
-		while(psn >= 0){
+		System.out.println("the phrase is "+searchString);
+		System.out.println("the keyword is "+keyword);
+	int psn = searchString.indexOf(keyword);
+	System.out.println("the keyword was found at "+psn);
+	while(psn >= 0){
 			String before = " ";
 			String after = " ";
 			if(psn > 0){
 				before = searchString.substring(psn-1, psn);
+					
 			}
 			if(psn+ keyword.length() > searchString.length()){
 				after = searchString.substring(psn+ keyword.length(), psn+ keyword.length()+1);
-			
+				System.out.println("the character after is "+after);
 			}
-			if(before.compareTo("a") < 0 && after.compareTo("a") < 0){
+			if(before.compareTo("a") < 0 && after.compareTo("a") < 0  && noNegations(searchString, psn)  == true){
+				System.out.println("found "+keyword+ " at"  +psn);
 				return psn;
 			}
 			else{
 				psn = searchString.indexOf(keyword, psn+1);
+				System.out.println("did not find "+keyword+ ", checking position "+psn);
 			}
 		}
 		
@@ -84,6 +90,24 @@ public class SimonMain {
 	
 	
 	
+	private static boolean noNegations(String searchString, int psn) {
+	
+		// TODO Auto-generated method stub
+	if(psn - 3>= 0 && searchString.substring(psn-3,psn).equals("no ")){
+		return false;
+	}
+	if(psn - 4>= 0 && searchString.substring(psn-4,psn).equals("not ")){
+		return false;
+	}
+	if(psn - 6>= 0 && searchString.substring(psn-6,psn).equals("never ")){
+		return false;
+	}
+	if(psn - 4>= 0 && searchString.substring(psn-4,psn).equals("n't ")){
+		return false;
+	}
+		return true;
+	}
+
 	public static String promptInput() {
 		String userInput = input.nextLine();
 		return userInput;
