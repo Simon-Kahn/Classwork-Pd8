@@ -9,6 +9,8 @@ public class SimonMain {
 	static boolean inMainLoop;
 	//list all chatbots available under this class
 	static Chatbot school;
+	static Chatbot hello;
+	
 	public static void main(String[] args) {
 		
 		createFields();
@@ -173,6 +175,7 @@ System.out.println(printString);
 		input = new Scanner(System.in);
 		user = "";
 		school = new SimonSchool();
+		hello = new SimonHello();
 	}
 	
 	public static void demostrateStringMethods(){

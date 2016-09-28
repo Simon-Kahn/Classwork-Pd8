@@ -20,4 +20,12 @@ public class SimonSchool implements Chatbot{
 
 	}
 
+	@Override
+	public boolean isTriggered(String userInput) {
+		if(SimonMain.findKeyword(userInput, "school", 0) >= 0){
+			return true;
+		}
+		return false;
+	}
+
 }
