@@ -32,6 +32,16 @@ public class ArraysPractice {
 		for (String s: someStrings1){
 			System.out.println(s);
 		}
+
+		//these two constructors are different
+		String[] strings1 = {"","",""};
+		String[] strings2 = new String[33];
+
+		//this loop instantiating the strings
+		for(int index =0; index < strings2.length; 
+				index ++){
+			strings2[index] = "value "+(index+1);
+		}
 	}
 }
 //Arrays
