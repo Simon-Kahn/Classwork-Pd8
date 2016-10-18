@@ -20,7 +20,8 @@ public class HW1 {
     }
     
     public static int searchUnsorted(int[] arrayToSearch, int key){
-    /**
+    
+    	/**
      * this method take an unsorted int array (arrayToSearch) and returns an 
      * int corresponding to the index of a key, if it is in the array
      * if the key is not in the array, this method returns -1
@@ -40,11 +41,18 @@ public class HW1 {
     }
     
     public static boolean isSorted(int[] array){
-        /**
+       boolean sorted = true; 
+    	/**
          * This method takes an in array as a parameter and returns 'true' if the array is already sorted in DESCENDING order
          * */
-        return false;
+        for(int i =0; i <(array.length - 1); i++){
+        	if(array[i-1] > array[i]){
+        		sorted = false;
+        	}
+        }
+    	return sorted;
     }
+
     
     
     public static double[] getStats(double[] array){
@@ -122,7 +130,9 @@ public class HW1 {
     }
 
     public static int[] generateDistinctItemsList(int n){
-        /**
+        
+    	
+    	/**
          * This method needs to generate an int[] of length n that contains distinct, random integers
          * between 1 and 2n 
          * The method will be tested by verifying that the array you return is n items long,

@@ -165,7 +165,11 @@ public class ArraysPractice {
 			strings2[index] = "value "+(index+1);
 		}
 	}
+
 }
+
+
+
 //Arrays
 //Fixed length
 //indices start at zero
