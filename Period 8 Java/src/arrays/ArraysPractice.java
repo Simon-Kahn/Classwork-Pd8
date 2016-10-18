@@ -1,12 +1,21 @@
 package arrays;
 
 public class ArraysPractice {
-
+	static int[] dieArray = new int[10000];
+	static int[] results = new int[11];
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 		//This is how you time how 
 		//quickly a computer processes
+		int[] numbers = new int[50];
+		int[] randoms = new int[10];
+		arrayIntoMethodRandom(randoms);
+		arrayIntoMethod(numbers);
+		rollDice(dieArray);
+		populateResultsArray(dieArray);
+		printResults(results);
 		long startTime = System.currentTimeMillis();
 		
 		SampleElement sample = new SampleElement(10);
@@ -20,9 +29,52 @@ public class ArraysPractice {
 
 	}
 
+	private static void arrayIntoMethod(int[] a) {
+		int [] numbers = new int[50];
+		for(int index = 0; index < numbers.length; index++){
+			numbers[index] = (int)(index + 1);
+		}
+	}
+
+	private static void arrayIntoMethodRandom(int[] a) {
+		int index = 0;
+		for(int b:a){
+			index ++;
+			b = (int) ((Math.random() * 10) + 1);
+		}
+	}
+	
+	public static void rollDice(int[] a){
+		for(int index = 0; index < a.length; index++){
+			a[index] = ((int) ((Math.random() * 6) + 1)) + ((int) ((Math.random() * 6) + 1));
+		}
+	}
+	
+	public static void populateResultsArray(int[] a){
+		for(int index = 0; index < a.length; index++){
+			results[dieArray[index] - 2]++;
+		}
+	}
+	
+	public static void printResults(int[] arr){
+		for(int i = 0; i < arr.length; i++){
+			System.out.println((int)(i + 2)+" is rolled "+
+			((double)arr[i] / dieArray.length * 100)+ " % of the time");  
+		}
+	}
+public static void pupulate(int n){
+	int[] array1;
+	array1 = new int[n];
+	for (int i = 0; i<n; i++){
+		array1[i] = i+1; 
+		
+	}
+	
+}
+
 	private static void passByValueDemonstration(){
 		String[] someStrings = new String[100];
-		populateArray(someStrings);
+		//populateArray(someStrings);
 
 		int ten = 10;
 		increase(ten);
@@ -43,6 +95,7 @@ public class ArraysPractice {
 				someStrings[99]);
 	}
 	
+
 
 	private static void changeArrayElement
 	(String[] someStrings, int i) {
@@ -76,13 +129,13 @@ public class ArraysPractice {
 	}
 
 
-	private static void populateArray(String[] a) {
-		//this loop instantiating the strings
-		for(int index =0; index < a.length; 
-				index ++){
-			a[index] = "value "+(index+1);
-		}
-	}
+//	private static void populateArray(String[] a) {
+//		//this loop instantiating the strings
+//		for(int index =0; index < a.length; 
+//				index ++){
+//			a[index] = "value "+(index+1);
+//		}
+//	}
 
 
 	public static void arrayIntroMethod(){

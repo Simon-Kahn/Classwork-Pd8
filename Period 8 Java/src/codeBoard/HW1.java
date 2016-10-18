@@ -46,7 +46,7 @@ public class HW1 {
          * This method takes an in array as a parameter and returns 'true' if the array is already sorted in DESCENDING order
          * */
         for(int i =0; i <(array.length - 1); i++){
-        	if(array[i-1] > array[i]){
+        	if(array[i-1] < array[i]){
         		sorted = false;
         	}
         }
