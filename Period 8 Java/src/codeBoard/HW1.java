@@ -20,12 +20,16 @@ public class HW1 {
     }
     
     public static int searchUnsorted(int[] arrayToSearch, int key){
-    
     	/**
      * this method take an unsorted int array (arrayToSearch) and returns an 
      * int corresponding to the index of a key, if it is in the array
      * if the key is not in the array, this method returns -1
      * */
+    	   for(int i =0; i <(arrayToSearch.length - 1); i++){
+           	if(arrayToSearch[i] == key){
+           		return i;
+           	}
+           }
      return -1;
     }
     
