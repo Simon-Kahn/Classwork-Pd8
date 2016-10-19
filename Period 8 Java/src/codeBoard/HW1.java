@@ -3,7 +3,7 @@ package codeBoard;
 public class HW1 {
 
 	//public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		// 8
 
 //public class ArrayMethods {
 
@@ -170,11 +170,22 @@ public class HW1 {
          * CHALLENGE
          * For extra credit, make your method handle NEGATIVE n
          * */
+    	
+    	for(int i =1;i<=n;i++){
+    		int k1=array[(array.length -1)];
+    		for(int j =0;j<array.length;j++){
+    			
+    			 if (j==array.length-1){
+    			
+    			array[j]=k1;
+    		}
+    				else {
+    					array[j]=array[j+1];
+    				}
+    	}
+    	}
     }
-    
 
-}
-
-//	}
+	}
 
 //}
