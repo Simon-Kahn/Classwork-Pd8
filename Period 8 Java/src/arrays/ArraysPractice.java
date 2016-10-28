@@ -1,234 +1,216 @@
 package arrays;
+import java.util.Arrays;
 
 public class ArraysPractice {
-	static int[] dieArray = new int[10000];
-	static int[] results = new int[11];
-	
+
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-		//This is how you time how 
-		//quickly a computer processes
-		int[] numbers = new int[50];
-		int[] randoms = new int[10];
-		arrayIntoMethodRandom(randoms);
-		arrayIntoMethod(numbers);
-		rollDice(dieArray);
-		populateResultsArray(dieArray);
-		printResults(results);
-		long startTime = System.currentTimeMillis();
-		
-		SampleElement sample = new SampleElement(10);
-		sample.increase();
-		System.out.println("The sample element has"
-				+ " a number equal to "+sample.getNumber());
-		
-		long endTime = System.currentTimeMillis();
-		System.out.println("Completed method in "
-				+ (endTime-startTime)+ " milliseconds");
-
-	}
-
-	private static void arrayIntoMethod(int[] a) {
-		int [] numbers = new int[50];
-		for(int index = 0; index < numbers.length; index++){
-			numbers[index] = (int)(index + 1);
-		}
-	}
-
-	private static void arrayIntoMethodRandom(int[] a) {
-		int index = 0;
-		for(int b:a){
-			index ++;
-			b = (int) ((Math.random() * 10) + 1);
-		}
-	}
-	
-	public static void rollDice(int[] a){
-		for(int index = 0; index < a.length; index++){
-			a[index] = ((int) ((Math.random() * 6) + 1)) + ((int) ((Math.random() * 6) + 1));
-		}
-	}
-	
-	public static void populateResultsArray(int[] a){
-		for(int index = 0; index < a.length; index++){
-			results[dieArray[index] - 2]++;
-		}
-	}
-	
-	public static void printResults(int[] arr){
-		for(int i = 0; i < arr.length; i++){
-			System.out.println((int)(i + 2)+" is rolled "+
-			((double)arr[i] / dieArray.length * 100)+ " % of the time");  
-		}
-	}
-public static void pupulate(int n){
-	int[] array1;
-	array1 = new int[n];
-	for (int i = 0; i<n; i++){
-		array1[i] = i+1; 
-		
-	}
-	
-}
-
-	private static void passByValueDemonstration(){
-		String[] someStrings = new String[100];
-		//populateArray(someStrings);
-
-		int ten = 10;
-		increase(ten);
-		System.out.println("Ten, increased is "+ten);
-
-		//in this method, we pass the ELEMENT
-		//(a variable) not the array, so
-		//no change will be made
-		System.out.println("Before "+someStrings[99]);
-		changeString(someStrings[99]);
-		System.out.println("After \"changeString\" method "+
-				someStrings[99]);
-		changeArray(someStrings);
-		System.out.println("After \"changeArray\" method "+
-				someStrings[99]);
-		changeArrayElement(someStrings,99);
-		System.out.println("After \"changeArrayElement\" method "+
-				someStrings[99]);
-	}
-	
-
-
-	private static void changeArrayElement
-	(String[] someStrings, int i) {
-		someStrings[i] = "new item "+(i+1);
-	}
-
-
-	private static void changeArray(String[] someStrings) {
-		someStrings = new String[100];
-		for(int i= 0; i < someStrings.length; i++){
-			someStrings[i] = "new item "+(i+1);
-		}
-	}
-
-	//this method does nothing, since local variables 
-	//are destroyed after the method is complete
-	private static void increase(int x) {
-		x = x +1;
-	}
-
-
-	private static void changeString(String s){
-		s = "This string has been changed!";
-	}
-
-	private static void printArray(String[] a) {
-		//this loop prints the strings
-		for(String s: a){
-			System.out.println(s);
-		}
-	}
-
-
-//	private static void populateArray(String[] a) {
-//		//this loop instantiating the strings
-//		for(int index =0; index < a.length; 
-//				index ++){
-//			a[index] = "value "+(index+1);
+		double[] arr = {2, 3, 4, 6, 9, 11, 12, 15};
+		//swap(arr, 0, arr.length-1);
+		//shuffle(arr);
+		//print(arr);
+//		if(checkHalfway(arr, 12, 0, arr.length - 1))
+//		{System.out.println("The number you are looking for is"
+//				+ "less than the value in the middle of the array.");
+//		}else{
+//			System.out.println("The number you are looking for is "
+//					+ "greater than or equal to the value in the middle of "
+//					+ "the array.");
 //		}
-//	}
+//		countUnderBound(arr, 4);
+//		int[] array = {3, 9, 6, 11, 14, 16, 3, 6, 7, 10, 14, 25, 31, 13, 24, 3, 6, 9 ,11, 3, 9, 6 , 11};
+//		int[] subArr = getSubArray(array, 19, 22);
+//		System.out.println(Arrays.toString(subArr) + "");
+//		contains(array, subArr);
+		int[] array = new int[1000];
+		testPrimes(100);
+	}
 
-
-	public static void arrayIntroMethod(){
-		//construct 2 integer arrays
-		//these two metods do the same thing
-		//primitive type arrays fill with ZEROES 0, 0.0, false
-		int[] zeros1 = {0,0,0};
-		int[] zeros2 = new int[3];
-		//example
-		boolean[] booleans = new boolean[3];
-		//iterate (2 ways)
-		//FIRST METHOD: "FOR LOOP"
-		//   - the index of the data is important to reference
-		//   - you need to customize how you iterate 
-		//(increase by 2, backwards, etc...)
-		for(int index = 0; index< booleans.length; index ++){
-			System.out.println(index+") "+booleans[index]); 
+	/**
+	 * return an array containing elements from
+	 * startIndex to endIndex(inclusive)
+	 * @param arr
+	 * @param startIndex
+	 * @param endIndex
+	 * @return
+	 */
+	public static int[] getSubArray(int[] arr, int startIndex, int endIndex){
+		int[] subArray = new int[endIndex - startIndex +1];
+		for(int i = 0; i < subArray.length; i++){
+			subArray[i] = arr[startIndex + i];
 		}
-		//SECOND METHOD: "FOR-EACH"
-		//always goes in order, does nto keep track of index
-		//easier to type
-		for(boolean b: booleans){
-			System.out.println(b+"");
-		}
-
-
-		//these two constructors are different
-		String[] strings1 = {"","",""};
-		String[] strings2 = new String[33];
-
-		//this loop instantiating the strings
-		for(int index =0; index < strings2.length; 
-				index ++){
-			strings2[index] = "value "+(index+1);
-		}
-
-		//this loop prints the strings
-		for(String s: strings2){
-			System.out.println(s);
-		}
+		return subArray;
+	}
+	
+	/**
+	 * returns true if arr contains subArray sequence
+	 * @param arr
+	 * @param subArray
+	 * @return
+	 */
+	public static boolean contains(int[] arr, int[] subArray){
+		for(int i = 0 ; i < arr.length; i++){
+				//for(int index = 0; index < subArray.length; index++){
+				int index = i;
+				while(index < subArray.length){
+					if(subArray[index] == arr[index + i] && index == subArray.length - 1){
+						System.out.print("Found a match at index " + i);
+						return true;
+					}else if(subArray[index] != arr[i+ index]){
+						System.out.print("No match at " + i);
+						break;
+					}
+					index++;
+				}
+				//}
+			}
+		return false;
+	}
 		
+	
+	private static void testPrimes(int numberToTest){
+		int lastToCheck = (int)(Math.sqrt(numberToTest));
+		boolean[] theNumbers = new boolean[numberToTest];
+		for(int i = 0; i < numberToTest; i++){
+			theNumbers[i] = true;
+		}
+		theNumbers[0] = false;
+		theNumbers[1] = false;
+		for(int prime = 2; prime <= lastToCheck; prime ++){
+			if(theNumbers[prime]){
+				//only checks numbers that are prime
+				//(numbers that haven't been "crossed off")
+				//won't check 4 and 6(crossed off by 2)
+				System.out.println(prime + " is prime. Crossing off.");
+				
+				for(int test = prime + prime; test < numberToTest; test =test + prime){
+					//when checking 50 numbers, test 2,3,4,5,6,7 as if prime
+						System.out.print(test+", ");
+						theNumbers[test] = false;
+		//			if(numberToTest % (test + 1) == 0 || numberToTest % (test + 3) == 0 ){
+		//				theNumbers[test] = false;
+		//			}
+				}
+			}
+		}
+		System.out.println();
+		for(int index = 0; index < theNumbers.length; index++){
+			if(theNumbers[index]){
+				System.out.println(index + " is prime.");
+			}
+		}
+//		String primes = "";
+//		for(int index = 0; index <= numberToTest; index ++){
+//			int theNumbers = 0;
+//			for(int j = index; j >= 1; j--){
+//				if(index % j == 0){
+//					theNumbers = theNumbers + 1;
+//				}
+//			}
+//			if(theNumbers == 2){
+//				primes = primes + index + " ";
+//			}
+//		}
+//		System.out.println(primes + "is prime.");
+	}
+	
+	public static void populateRandomArray(int[] arr){
+		int[] randArr = new int[arr.length - 1];
+		for(int i = 0; i < arr.length; i ++){
+			int toAdd = arr[(int)Math.random() * arr.length];
+			while(indexOf(randArr,toAdd) > -1){
+				toAdd = arr[(int)Math.random() * arr.length];
+			}
+			randArr[i] = toAdd;
+		}
+	}
+	
+	private static int indexOf(int[] arr, int toFind){
+		for(int i = 0; i < arr.length; i++){
+			if(arr[i] == toFind){
+				return i;
+			}
+			return -1;
+		}
+		return 0;
+	}
+	
+	//returns number of elements in arr less than d
+	public static int countUnderBound(double[] arr, double d){
+		int underBound = 0;
+		for(int i = 0; i < arr.length; i++){
+			if(arr[i] < d ){
+				underBound++;
+			}
+		}
+		System.out.println(underBound);
+		return underBound;
+	}
+	
+	public static void cycleThrough(int[] arr, int n){
+		for(int i = 0; i < arr.length; i++){
+			cycleOnce(arr);
+		}
+	}
+	
+	private static void cycleOnce(int[] arr) {
+		for(int i = 0; i < arr.length; i++){
+			if(i == 0){
+				swap(arr,arr[i], arr[arr.length]);
+			}
+			swap(arr, arr[i], arr[i + 1]);
+		}
+	}
+
+	private static void shuffle(int[] arr) {
+		for(int i = 0; i < arr.length; i++){
+			int random = (int) (Math.random() * arr.length);
+			swap(arr,i,random);
+		}
 		
 	}
-	public static void initializingArrayExample(){
-		int[] zeros1 = {0,0,0};
-		int[] zeros2 = new int[3];
-		//example
-		boolean[] booleans = new boolean[3];
-		//iterate (2 ways)
-		//FIRST METHOD: "FOR LOOP"
-		//   - the index of the data is important to reference
-		//   - you need to customize how you iterate 
-		//(increase by 2, backwards, etc...)
-		for(int index = 0; index< booleans.length; index ++){
-			System.out.println(index+") "+booleans[index]); 
-		}
-		//SECOND METHOD: "FOR-EACH"
-		//always goes in order, does not keep track of index
-		//easier to type
-		//don't need to customize
-		//automatically assignes a "handle"
-		for(boolean b: booleans){
-			System.out.println(b+"");
-		}
-		//	OBJECT ARRAYS
-		String[] someStrings1 = new String[3];
-		String[] someStrings2 = {"a","b","c"};
-		
-		for (String s: someStrings1){
-			System.out.println(s);
-		}
 
-		//these two constructors are different
-		String[] strings1 = {"","",""};
-		String[] strings2 = new String[33];
-
-		//this loop instantiating the strings
-		for(int index =0; index < strings2.length; 
-				index ++){
-			strings2[index] = "value "+(index+1);
-		}
+	public static void selectionSort(int[] array){
+		System.out.println("Selection sort with "+Arrays.toString(array));
+		for (int i = 0; i < array.length - 1; i++){
+		    int tempLowIndex = i;
+		    for (int j = i + 1; j < array.length; j++){
+		        if (array[j] < array[tempLowIndex]){
+		            tempLowIndex = j;
+		        }
+		    }
+		   if(tempLowIndex!=i){
+		         swap(array, tempLowIndex, i);
+		         System.out.println("becomes "+Arrays.toString(array));
+		   } 
+		   }//end for
+		System.out.println("Ends as "+Arrays.toString(array));
 	}
+	private static void print(int[] arr){
+		for(int i = 0; i < arr.length; i++){
+			System.out.println(arr[i]+", ");
+		}
+		System.out.println(arr[arr.length - 1]);
+	}
+	private static void swap(int[] arr, int i, int j) {
+		 int placeholder = arr[j];
+		 arr[j] = arr[i];
+		 arr[i] = placeholder;
+	}
+
+	/**
+	 * returns true if searchValue is less than element 
+	 * halfway between beginning and end  
+	 * @param arr
+	 * @param i
+	 * @param j
+	 * @param length
+	 */
+	
+	private static boolean checkHalfway(int[] arr, int searchValue, int begin, int end) {
+		return searchValue < arr[(begin + end + 1)/2];
+	}
+	
+	//(int)((arr.length/2)-1)
+	//(int)(arr.length/2)
 
 }
-
-
-
-//Arrays
-//Fixed length
-//indices start at zero
-//indexed (array)
-//common data type (e.g. "student[]")
-//arrays of any type must be Object[]
-//		
-//		if you want to put different primitive types into an array,
-//you must use their Wrapper class
