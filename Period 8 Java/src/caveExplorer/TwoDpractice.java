@@ -12,6 +12,7 @@ public class TwoDpractice {
 	static int startj;
 	static int treasurei;
 	static int treasurej;
+static String[][] grid;
 	public static void main(String[] args) {
 		arr2D = new String[5][5];
 		pic = new String[5][5];
@@ -24,8 +25,9 @@ public class TwoDpractice {
 			startj=2;
 			treasurei=4;
 			treasurej=3;
-
-			startExploring();
+grid = newGrid(8, 15);
+		printPic(grid);
+	startExploring();
 		
 
 
@@ -118,6 +120,48 @@ public class TwoDpractice {
 			}
 		}
 		return false;
+	}
+private static String[][] newGrid(int i, int j) {
+		int height = 3*i + 1;
+		int width = 4*j + 1;
+
+		String[][] arr = new String[height][width];
+
+		for (int k = 0; k < arr.length; k++) {
+			for (int k2 = 0; k2 < arr[k].length; k2++) {
+				arr[k][k2] = " ";
+			}
+		}
+
+		for (int k = 0; k < height; k++) {
+			arr[k][0] = "|";
+		}
+
+		for (int k = 0; k < width; k++) {
+			arr[0][k] = "_";
+		}
+
+		for (int a = 0; a < i; a++) {
+			int topLeftY = (3 * a) + 1;
+			for (int b = 0; b < j; b++) {
+				int topLeftX = (4 * b) + 1;
+
+//				arr[topLeftY + 2][topLeftX - 1] = "_";
+				arr[topLeftY + 2][topLeftX] = "_";
+				arr[topLeftY + 2][topLeftX + 1] = "_";
+				arr[topLeftY + 2][topLeftX + 2] = "_";
+//				arr[topLeftY + 2][topLeftX + 3] = "_";
+
+				arr[topLeftY][topLeftX + 3] = "|";
+				arr[topLeftY + 1][topLeftX + 3] = "|";
+				arr[topLeftY + 2][topLeftX + 3] = "|";
+//				arr[topLeftY + 3][topLeftX + 2] = "|";
+
+//				arr[topLeftY][topLeftX] = "A";
+			}
+		}
+
+		return arr;
 	}
 	private static String countNearby(boolean[][] mines, int row, int col) {
 		//		for (int r = row - 1; r < row + 1; r++) {
