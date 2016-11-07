@@ -25,8 +25,8 @@ static String[][] grid;
 			startj=2;
 			treasurei=4;
 			treasurej=3;
-grid = newGrid(8, 15);
-		printPic(grid);
+//grid = newGrid(8, 15);
+		//printPic(grid);
 	startExploring();
 		
 
