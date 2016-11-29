@@ -16,8 +16,8 @@ public class RecursionIntro {
 		
 			}
 		});
-	System.out.println(""+fac(5));
-	hanoiSolution(2,"A","B","C");
+	System.out.println(""+fac(21));
+	hanoiSolution(3,"A","B","C");
 	}
 
 	private static void forLoop(int i, Action action) {
@@ -46,6 +46,8 @@ public static void hanoiSolution(int numberofDiscs, String startPeg, String midP
 		System.out.println("move "+startPeg+" to "+endPeg);
 	}else{
 		hanoiSolution(numberofDiscs-1, startPeg,endPeg,midPeg);
+		hanoiSolution(1,startPeg,midPeg,endPeg);
+		hanoiSolution(numberofDiscs-1,midPeg,startPeg,endPeg);
 	}
 }
 	
