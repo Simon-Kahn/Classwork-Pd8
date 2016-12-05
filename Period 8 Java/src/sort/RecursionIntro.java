@@ -3,6 +3,7 @@ package sort;
 public class RecursionIntro {
 
 	public static void main(String[] args) {
+		long count=0;
 		long n = 50;
 		System.out.println("The "+n+"th Fibonacci is "+fibonacci(n));
 		// System.out.println("Using a for loop:");
@@ -32,9 +33,11 @@ public class RecursionIntro {
 		if(n<=0){
 			return 1;
 		}else{
-			System.out.println(""+n);
+			count++;
+			System.out.println(":::::::::::::::::::::::::::::::::::::::"+count);
 			long previous =fibonacci(n-1);		
 			long beforePrevious =fibonacci(n-2);
+			System.out.println(""+previous+beforePrevious);
 			return previous+beforePrevious;
 		}
 		
