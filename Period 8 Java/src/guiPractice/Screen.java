@@ -41,7 +41,7 @@ public class Screen {
 		for(int i =0;i<image.getWidth();i+=4){
 			g.drawLine(i, 230, i, 238);
 		}
-		//unfinished
+		//unfinisheds
 	}
 	public BufferedImage getImage(){
 		return image;
