@@ -5,31 +5,32 @@ import java.awt.image.BufferedImage;
 
 public abstract class Component implements Visible {
 
-	//fields
+	// fields
 	private int x;
 	private int y;
 	private int w;
 	private int h;
 	private BufferedImage image;
-	
-	//constructor
-	public Component(int x, int y, int w, int h){
-		this.x =x;
-		this.y =y;
-		this.w =w;
-		this.h =h;
-		image = new BufferedImage(w,h,BufferedImage.TYPE_INT_ARGB);
+
+	// constructor
+	public Component(int x, int y, int w, int h) {
+		this.x = x;
+		this.y = y;
+		this.w = w;
+		this.h = h;
+		image = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
 		update(image.createGraphics());
 	}
-	
-	
-	
-	
-	//draw the component
+
+	public Graphics2D clear() {
+		// resets the picture
+		image = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+		return image.createGraphics();
+	}
+
+	// draw the component
 	public abstract void update(Graphics2D g);
-	
-	
-	
+
 	public BufferedImage getImage() {
 		return image;
 	}
@@ -45,12 +46,12 @@ public abstract class Component implements Visible {
 	}
 
 	@Override
-	public int getWidth() {	
+	public int getWidth() {
 		return w;
 	}
 
 	@Override
-	public int getHeight() {	
+	public int getHeight() {
 		return h;
 	}
 
