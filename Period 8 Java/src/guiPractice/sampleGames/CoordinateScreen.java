@@ -8,12 +8,13 @@ import java.util.ArrayList;
 import guiPractice.Screen;
 import guiPractice.components.Action;
 import guiPractice.components.Button;
+import guiPractice.components.Graphic;
 import guiPractice.components.TextArea;
 import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
 
 public class CoordinateScreen extends Screen implements MouseMotionListener {
-
+	private Graphic myPic;
 	private Button myButton;
 	private TextLabel label;
 	private TextArea paragraph;
@@ -29,7 +30,8 @@ public class CoordinateScreen extends Screen implements MouseMotionListener {
 				+ "as the paragraph gets to the edge" + " of the page, a new line is created.");
 		
 
-	
+	Graphic myPic= new Graphic(0,0,"sampleImages/nbc-fires-donald-trump-after-he-calls-mexicans-rapists-and-drug-runners.jpg");
+	viewObjects.add(myPic);
 	myButton = new Button(40,50,100,30,"Button",new Color(0,76,153), new Action(){
 		public void act(){
 		//code for action will be in here.
