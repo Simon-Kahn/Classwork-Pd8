@@ -35,6 +35,7 @@ public class Button extends TextLabel {
 
 	public Action getAction() {
 		return action;
+		
 	}
 
 

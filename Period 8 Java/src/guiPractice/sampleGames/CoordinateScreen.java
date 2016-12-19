@@ -14,7 +14,7 @@ import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
 
 public class CoordinateScreen extends Screen implements MouseMotionListener {
-	private Graphic myPic;
+	private Graphic picture;
 	private Button myButton;
 	private TextLabel label;
 	private TextArea paragraph;
@@ -28,16 +28,17 @@ public class CoordinateScreen extends Screen implements MouseMotionListener {
 		label = new TextLabel(40, 45, 760, 40, "Sample Text");
 		paragraph = new TextArea(40, 85, 760, 500, "This is a whole paragraph. Notice how "
 				+ "as the paragraph gets to the edge" + " of the page, a new line is created.");
-		
+		Graphic picture= new Graphic(50,50,2,"resources/sampleImages/hand-gestures-oh.jpg");
 
-	Graphic myPic= new Graphic(0,0,"sampleImages/nbc-fires-donald-trump-after-he-calls-mexicans-rapists-and-drug-runners.jpg");
-	viewObjects.add(myPic);
+
+
 	myButton = new Button(40,50,100,30,"Button",new Color(0,76,153), new Action(){
 		public void act(){
 		//code for action will be in here.
 		}
 		
 	});
+	viewObjects.add(picture);
 	viewObjects.add(label);
 	viewObjects.add(paragraph);
 	viewObjects.add(myButton);
