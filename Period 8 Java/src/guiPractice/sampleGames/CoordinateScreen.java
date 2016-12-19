@@ -33,6 +33,7 @@ public class CoordinateScreen extends Screen implements MouseMotionListener {
 
 
 	myButton = new Button(40,50,100,30,"Button",new Color(0,76,153), new Action(){
+		
 		public void act(){
 		//code for action will be in here.
 		}
@@ -54,11 +55,14 @@ public class CoordinateScreen extends Screen implements MouseMotionListener {
 		if(m.getX()<200&m.getY()<300){
 			label.setText("Send Nudes");
 		}
+		
 		else label.setText("Mouse at " + m.getX() + ", " + m.getY());
+	
 	
 	}
 
 	public MouseMotionListener getMouseMotionListener() {
 		return this;
-	}
+	
+}
 }
