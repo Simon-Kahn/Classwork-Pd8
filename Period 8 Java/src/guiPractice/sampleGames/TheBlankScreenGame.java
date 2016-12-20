@@ -1,5 +1,6 @@
 package guiPractice.sampleGames;
 
+import guiPractice.BlankScreen;
 import guiPractice.GUIApplication;
 import guiPractice.Screen;
 
@@ -8,8 +9,8 @@ public class TheBlankScreenGame extends GUIApplication {
 	@Override
 	protected void initScreen() {
 		// TODO Auto-generated method stub
-		Screen s = new BlankScreen(getWidth(),getHeight());
-		setScreen(s);
+//		BlankScreen s = new BlankScreen(getWidth(),getHeight());
+//		setScreen(s);
 	}
 
 

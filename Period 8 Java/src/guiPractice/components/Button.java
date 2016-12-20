@@ -83,7 +83,7 @@ public int getW(){
 
 	@Override
 	public void act() {
-		// TODO Auto-generated method stub
+		action.act();
 		
 	}
 
