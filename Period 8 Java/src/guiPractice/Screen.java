@@ -101,6 +101,22 @@ public abstract class Screen {
 		 *          i--;
 		 *  }
 		 * }
+		 * * CORRECT
+		 * * for(int i = 0; i <list.size(); i++){
+		 * 	while(i < list.size() && list.get(i) > 5) {
+		 *          list.remove(i);
+		 *       
+		 *  }
+		 * }
+		 * for this reason the following doesn't work!
+		 * BECAUSE remove changes the size!
+		 * for(Integer i: list){
+		 * if(i>5){
+		 * list.remove(i);
+		 * }
+		 * }
+		 * FINALLY, if you remove an index, it returns the removed object, so you can do this:
+		 * System.out.println(list.remove(0).toString()+" was removed.");
 		 */
 		viewObjects.remove(v);
 		/**
